@@ -13,7 +13,7 @@
 ## Data preparation
 Data should be downloaded in `./Datasets/`. You may also use any path by setting the `--dataset_root` argument to `/your/path/`.
 
-## Supervised pre-training with labelled data
+## Supervised pre-training with labeled data
 
 ```shell
 # Train CIFAR-10 with 5 labeled classes
@@ -26,7 +26,7 @@ CUDA_VISIBLE_DEVICES=0 python cifar100_pretrain.py
 CUDA_VISIBLE_DEVICES=0 python tinyimagenet_pretrain.py 
 ```
 
-## Unsupervised clustering with unlabelled data)
+## Unsupervised clustering with unlabeled data)
 
 ```shell
 # Train CIFAR-10 with 5 unlabeled classes
