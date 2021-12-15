@@ -1,7 +1,7 @@
 # ResTune
 
 <p align="center">
-    <img src='https://github.com/liuyudut/ResTune/blob/main/images/NCD_ResTune.png.png' height="250" >
+    <img src='https://github.com/liuyudut/ResTune/blob/main/images/NCD_ResTune.png' height="250" >
 </p>
 
 ## Dependencies
