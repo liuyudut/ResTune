@@ -22,20 +22,20 @@ CUDA_VISIBLE_DEVICES=0 python cifar10_pretrain.py
 # Train CIFAR-100 with 80 labeled classes
 CUDA_VISIBLE_DEVICES=0 python cifar100_pretrain.py 
 
-# Train TinyImageNet with 20 labeled classes
+# Train TinyImageNet with 80 labeled classes
 CUDA_VISIBLE_DEVICES=0 python tinyimagenet_pretrain.py 
 ```
 
 ## Unsupervised clustering with unlabelled data)
 
 ```shell
-# Train CIFAR-10 with 5 labeled classes
+# Train CIFAR-10 with 5 unlabeled classes
 CUDA_VISIBLE_DEVICES=0 python cifar10_ResTune.py 
 
-# Train CIFAR-100 with 80 labeled classes
+# Train CIFAR-100 with 20 unlabeled classes
 CUDA_VISIBLE_DEVICES=0 python cifar100_ResTune.py 
 
-# Train TinyImageNet with 20 labeled classes
+# Train TinyImageNet with 20 unlabeled classes
 CUDA_VISIBLE_DEVICES=0 python tinyimagenet_ResTune.py 
 ```
 
