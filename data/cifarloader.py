@@ -55,7 +55,7 @@ class CIFAR10(data.Dataset):
 
     def __init__(self, root, split='train+test', labeled=True, 
                  transform=None, target_transform=None,
-                 download=False, target_list = [0, 1, 2, 3, 4]):
+                 download=True, target_list = [0, 1, 2, 3, 4]):
         self.root = os.path.expanduser(root)
         self.transform = transform
         self.target_transform = target_transform
@@ -224,7 +224,7 @@ def CIFAR10Loader(root, batch_size, split='train', num_workers=2, labeled = True
     loader = data.DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=2)
     return loader
 
-def CIFAR100Loader(root, batch_size, split='train', num_workers=2, labeled = True, shuffle=True, aug=None, mode = '80_10'):
+def CIFAR100Loader(root, batch_size, split='train', num_workers=2, labeled = True, shuffle=True, aug=None, target_list = range(0, 100)):
     if aug == None:
         transform = transforms.Compose([
             transforms.ToTensor(),
@@ -244,13 +244,13 @@ def CIFAR100Loader(root, batch_size, split='train', num_workers=2, labeled = Tru
             transforms.ToTensor(),
             transforms.Normalize((0.507, 0.487, 0.441), (0.267, 0.256, 0.276)),
         ]))
-    if mode == 'probe':
-        dataset = CIFAR100(root=root, split=split, labeled=True, transform=transform, labeled_list=range(80, 90), unlabeled_list=None)
-    elif mode == '80_10':
-        dataset = CIFAR100(root=root, split=split, labeled=labeled, transform=transform, labeled_list=range(80), unlabeled_list=range(90, 100))
-    elif mode == '80_20':
-        dataset = CIFAR100(root=root, split=split, labeled=labeled, transform=transform, labeled_list=range(80), unlabeled_list=range(80, 100))
-
+    # if mode == 'probe':
+    #     dataset = CIFAR100(root=root, split=split, labeled=True, transform=transform, labeled_list=range(80, 90), unlabeled_list=None)
+    # elif mode == '80_10':
+    #     dataset = CIFAR100(root=root, split=split, labeled=labeled, transform=transform, labeled_list=range(80), unlabeled_list=range(90, 100))
+    # elif mode == '80_20':
+    #     dataset = CIFAR100(root=root, split=split, labeled=labeled, transform=transform, labeled_list=range(80), unlabeled_list=range(80, 100))
+    dataset = CIFAR100(root=root, split=split, labeled=labeled, transform=transform, target_list = target_list)  
     loader = data.DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers, pin_memory=True)
     return loader
 
